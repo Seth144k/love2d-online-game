@@ -4,7 +4,7 @@ require("src.state.game")
 title = {}
 
 function title:enter()
-    client = sock.newClient("localhost", 22122)
+    client = sock.newClient("25.57.114.243", 22122)
     client:setSerialization(bitser.dumps, bitser.loads)
     client:enableCompression()
 end

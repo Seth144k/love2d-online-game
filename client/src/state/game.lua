@@ -12,13 +12,6 @@ function game:enter()
     player:load()
 end
 
-function game:keypressed(key)
-    if key == "escape" then
-        gamestate.pop()
-        client:disconnect()
-    end
-end
-
 function game:draw()
     player:draw()
 end
