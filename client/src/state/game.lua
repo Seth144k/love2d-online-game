@@ -3,7 +3,7 @@ require("src.player")
 game = {}
 
 function game:enter()
-    client:connect()
+    client:connect(tonumber(serverCode.text))
     client:on("playerNum", function(num)
         playerNumber = num
     end)

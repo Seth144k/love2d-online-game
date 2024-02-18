@@ -9,12 +9,11 @@ function title:enter()
     client:enableCompression()
 end
 
-function title:draw()
-    suit.draw()
-end
-
+serverCode = {text = ""}
 function title:update(dt)
+    suit.Input(serverCode, 100, 300, 60, 70)
     if suit.Button("Connect", 100, 200, 60, 70).hit then
+        --client:connect(tonumber(input.text))
         gamestate.push(game)
     end
 end
