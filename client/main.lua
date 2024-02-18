@@ -7,8 +7,12 @@ function love.load()
     gamestate.registerEvents(nil)
     gamestate.switch(title)
     client:on("disconnect", function()
-        print("Player disconnected!")
         client:disconnect()
+    end)
+    client:on("image", function(data)
+        local file = love.filesystem.newFileData(data, "")
+        receivedImage = love.image.newImageData(file)
+        receivedImage = love.graphics.newImage(receivedImage)
     end)
 end
 

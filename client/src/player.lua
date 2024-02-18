@@ -16,7 +16,7 @@ function player:load()
     })
     self.players = {
         self:new(40, 40),
-        self:new(100, 200)
+        self:new(720, 520)
     }
     -- receive info on where the players are located
     client:on("playerState", function(data)

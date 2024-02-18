@@ -12,7 +12,7 @@ end
 function player:load()
     self.players = {
         self:new(40, 40),
-        self:new(100, 200)
+        self:new(720, 520)
     }
 
     server:on("playerY", function(y, client)

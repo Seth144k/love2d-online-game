@@ -14,7 +14,8 @@ end
 
 function game:keypressed(key)
     if key == "escape" then
-        gamestate.push(pause)
+        gamestate.pop()
+        client:disconnect()
     end
 end
 
