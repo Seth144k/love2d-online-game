@@ -3,7 +3,7 @@ require("src.player")
 game = {}
 
 function game:enter()
-    client:connect(tonumber(serverCode.text))
+    client:connect()
     client:on("playerNum", function(num)
         playerNumber = num
     end)
@@ -13,6 +13,7 @@ function game:enter()
 end
 
 function game:draw()
+    love.graphics.print(tostring(playerNumber))
     player:draw()
 end
 

@@ -20,7 +20,6 @@ end
 function love.draw()
     player:draw()
     love.graphics.print("Connected players: "..tostring(server:getClientCount()))
-    love.graphics.print("You are hosting on port "..tostring(server:getSocketAddress()), 0, 16)
 end
 
 function love.update(dt)

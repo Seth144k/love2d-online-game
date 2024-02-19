@@ -6,6 +6,7 @@ function player:new(x, y)
         y = y,
         width = 40,
         height = 40,
+        coinsCollected = 0
     }
 end
 
@@ -23,6 +24,10 @@ function player:load()
     server:on("playerX", function(x, client)
         local index = client:getIndex()
         self.players[index].x = x
+    end)
+    server:on("playerCoinsCollected", function(c, client)
+        local index = client:getIndex()
+        self.players[index].coinsCollected = c
     end)
 end
 

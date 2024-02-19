@@ -6,6 +6,7 @@ function player:new(x, y)
         y = y,
         width = 40,
         height = 40,
+        coinsCollected = 0
     }
 end
 
@@ -18,6 +19,7 @@ function player:load()
         self:new(40, 40),
         self:new(720, 520)
     }
+
     -- receive info on where the players are located
     client:on("playerState", function(data)
         local index = data.index
@@ -34,7 +36,7 @@ function player:draw()
     for _, p in pairs(self.players) do
         love.graphics.rectangle('fill', p.x, p.y, p.width, p.height)
     end
-    love.graphics.print("Your ping: "..tostring(client:getRoundTripTime()))
+    love.graphics.print(tostring(self.players[playerNumber].coinsCollected))
 end
 
 function player:update(dt)
@@ -42,6 +44,7 @@ function player:update(dt)
         local speed = 200
         local playerY = self.players[playerNumber].y
         local playerX = self.players[playerNumber].x
+        local coinsCollected = self.players[playerNumber].coinsCollected
         if love.keyboard.isDown("w") then
             playerY = self.players[playerNumber].y - speed * dt
         end
@@ -54,10 +57,15 @@ function player:update(dt)
         if love.keyboard.isDown("d") then
             playerX = self.players[playerNumber].x + speed * dt
         end
-        -- Update our own player position and send it to the server
+        if love.keyboard.isDown("f") then
+            coinsCollected = coinsCollected + 1
+        end
+        -- send player data to the server
         self.players[playerNumber].y = playerY
         self.players[playerNumber].x = playerX
+        self.players[playerNumber].coinsCollected = coinsCollected
         client:send("playerY", playerY)
         client:send("playerX", playerX)
+        client:send("playerCoinsCollected", coinsCollected)
     end
 end

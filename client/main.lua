@@ -27,7 +27,6 @@ function love.keypressed(key)
 end
 
 function love.draw()
-    --love.graphics.rectangle("fill", love.graphics.getWidth()/2-10, love.graphics.getHeight()/2-1000, 10, 10000)
     love.graphics.print("You are player "..tostring(playerNumber), 0, 16)
     suit.draw()
 end
