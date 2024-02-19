@@ -27,7 +27,7 @@ function love.keypressed(key)
 end
 
 function love.draw()
-    love.graphics.print("You are player "..tostring(playerNumber), 0, 16)
+    --love.graphics.print("You are player "..tostring(playerNumber), 0, 16)
     suit.draw()
 end
 

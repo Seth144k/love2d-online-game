@@ -13,7 +13,7 @@ function game:enter()
 end
 
 function game:draw()
-    love.graphics.print(tostring(playerNumber))
+    --love.graphics.print(tostring(playerNumber))
     player:draw()
 end
 

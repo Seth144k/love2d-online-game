@@ -32,11 +32,13 @@ function player:load()
     end)
 end
 
+local c
+
 function player:draw()
-    for _, p in pairs(self.players) do
+    for i, p in pairs(self.players) do
         love.graphics.rectangle('fill', p.x, p.y, p.width, p.height)
     end
-    love.graphics.print(tostring(self.players[playerNumber].coinsCollected))
+    love.graphics.print(tostring(c))
 end
 
 function player:update(dt)
@@ -64,6 +66,7 @@ function player:update(dt)
         self.players[playerNumber].y = playerY
         self.players[playerNumber].x = playerX
         self.players[playerNumber].coinsCollected = coinsCollected
+        c = coinsCollected
         client:send("playerY", playerY)
         client:send("playerX", playerX)
         client:send("playerCoinsCollected", coinsCollected)

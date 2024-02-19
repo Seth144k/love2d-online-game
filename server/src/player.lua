@@ -25,9 +25,9 @@ function player:load()
         local index = client:getIndex()
         self.players[index].x = x
     end)
-    server:on("playerCoinsCollected", function(c, client)
+    server:on("playerCoinsCollected", function(coins, client)
         local index = client:getIndex()
-        self.players[index].coinsCollected = c
+        self.players[index].coinsCollected = coins
     end)
 end
 
