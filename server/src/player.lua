@@ -31,14 +31,21 @@ function player:load()
     end)
 end
 
+local one
+local two
+
 function player:draw()
     for i, p in pairs(self.players) do
         love.graphics.rectangle('fill', p.x, p.y, p.width, p.height)
     end
+    love.graphics.print(tostring(one))
+    love.graphics.print(tostring(two), 0, 16)
 end
 
 function player:update(dt)
     for i, p in pairs(self.players) do
         server:sendToAll("playerState", {i, p})
     end
+    one = player.players[1].coinsCollected
+    two = player.players[2].coinsCollected
 end
