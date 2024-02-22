@@ -19,7 +19,7 @@ end
 
 function love.draw()
     player:draw()
-    --love.graphics.print("Connected players: "..tostring(server:getClientCount()))
+    love.graphics.print("Connected players: "..tostring(server:getClientCount()))
 end
 
 function love.update(dt)
